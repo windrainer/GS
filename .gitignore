@@ -1,0 +1,5 @@
+.settings
+.DS_Store
+/web-resources/.gitignore
+.classpath
+target/
