@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nighteagle.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.nighteagle.model.User">
+    <id column="userid" jdbcType="INTEGER" property="userid" />
+    <result column="firstname" jdbcType="VARCHAR" property="firstname" />
+    <result column="middlename" jdbcType="VARCHAR" property="middlename" />
+    <result column="lastname" jdbcType="VARCHAR" property="lastname" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="status" jdbcType="BIT" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="gender" jdbcType="VARCHAR" property="gender" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    userid, firstname, middlename, lastname, username, status, create_time, gender, password
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where userid = #{userid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user
+    where userid = #{userid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.nighteagle.model.User">
+    insert into user (userid, firstname, middlename, 
+      lastname, username, status, 
+      create_time, gender, password
+      )
+    values (#{userid,jdbcType=INTEGER}, #{firstname,jdbcType=VARCHAR}, #{middlename,jdbcType=VARCHAR}, 
+      #{lastname,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{status,jdbcType=BIT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{gender,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.nighteagle.model.User">
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="firstname != null">
+        firstname,
+      </if>
+      <if test="middlename != null">
+        middlename,
+      </if>
+      <if test="lastname != null">
+        lastname,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="firstname != null">
+        #{firstname,jdbcType=VARCHAR},
+      </if>
+      <if test="middlename != null">
+        #{middlename,jdbcType=VARCHAR},
+      </if>
+      <if test="lastname != null">
+        #{lastname,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=BIT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nighteagle.model.User">
+    update user
+    <set>
+      <if test="firstname != null">
+        firstname = #{firstname,jdbcType=VARCHAR},
+      </if>
+      <if test="middlename != null">
+        middlename = #{middlename,jdbcType=VARCHAR},
+      </if>
+      <if test="lastname != null">
+        lastname = #{lastname,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=BIT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where userid = #{userid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nighteagle.model.User">
+    update user
+    set firstname = #{firstname,jdbcType=VARCHAR},
+      middlename = #{middlename,jdbcType=VARCHAR},
+      lastname = #{lastname,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      status = #{status,jdbcType=BIT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      gender = #{gender,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR}
+    where userid = #{userid,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.nighteagle.model.User">
+    <id column="permissionid" jdbcType="INTEGER" property="permissionid" />
+    <result column="permission_name" jdbcType="VARCHAR" property="permissionName" />
+    <result column="permission_code" jdbcType="VARCHAR" property="permissionCode" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    permissionid, permission_name, permission_code, description
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from permission
+    where permissionid = #{permissionid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from permission
+    where permissionid = #{permissionid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.nighteagle.model.User">
+    insert into permission (permissionid, permission_name, permission_code, 
+      description)
+    values (#{permissionid,jdbcType=INTEGER}, #{permissionName,jdbcType=VARCHAR}, #{permissionCode,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.nighteagle.model.User">
+    insert into permission
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="permissionid != null">
+        permissionid,
+      </if>
+      <if test="permissionName != null">
+        permission_name,
+      </if>
+      <if test="permissionCode != null">
+        permission_code,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="permissionid != null">
+        #{permissionid,jdbcType=INTEGER},
+      </if>
+      <if test="permissionName != null">
+        #{permissionName,jdbcType=VARCHAR},
+      </if>
+      <if test="permissionCode != null">
+        #{permissionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nighteagle.model.User">
+    update permission
+    <set>
+      <if test="permissionName != null">
+        permission_name = #{permissionName,jdbcType=VARCHAR},
+      </if>
+      <if test="permissionCode != null">
+        permission_code = #{permissionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where permissionid = #{permissionid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nighteagle.model.User">
+    update permission
+    set permission_name = #{permissionName,jdbcType=VARCHAR},
+      permission_code = #{permissionCode,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR}
+    where permissionid = #{permissionid,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.nighteagle.model.User">
+    <id column="permissionid" jdbcType="INTEGER" property="permissionid" />
+    <result column="permission_name" jdbcType="VARCHAR" property="permissionName" />
+    <result column="permission_code" jdbcType="VARCHAR" property="permissionCode" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    permissionid, permission_name, permission_code, description
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from permission
+    where permissionid = #{permissionid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from permission
+    where permissionid = #{permissionid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.nighteagle.model.User">
+    insert into permission (permissionid, permission_name, permission_code, 
+      description)
+    values (#{permissionid,jdbcType=INTEGER}, #{permissionName,jdbcType=VARCHAR}, #{permissionCode,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.nighteagle.model.User">
+    insert into permission
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="permissionid != null">
+        permissionid,
+      </if>
+      <if test="permissionName != null">
+        permission_name,
+      </if>
+      <if test="permissionCode != null">
+        permission_code,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="permissionid != null">
+        #{permissionid,jdbcType=INTEGER},
+      </if>
+      <if test="permissionName != null">
+        #{permissionName,jdbcType=VARCHAR},
+      </if>
+      <if test="permissionCode != null">
+        #{permissionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nighteagle.model.User">
+    update permission
+    <set>
+      <if test="permissionName != null">
+        permission_name = #{permissionName,jdbcType=VARCHAR},
+      </if>
+      <if test="permissionCode != null">
+        permission_code = #{permissionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where permissionid = #{permissionid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nighteagle.model.User">
+    update permission
+    set permission_name = #{permissionName,jdbcType=VARCHAR},
+      permission_code = #{permissionCode,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR}
+    where permissionid = #{permissionid,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.nighteagle.model.User">
+    <id column="userid" jdbcType="INTEGER" property="userid" />
+    <result column="firstname" jdbcType="VARCHAR" property="firstname" />
+    <result column="middlename" jdbcType="VARCHAR" property="middlename" />
+    <result column="lastname" jdbcType="VARCHAR" property="lastname" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="status" jdbcType="BIT" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="gender" jdbcType="VARCHAR" property="gender" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    userid, firstname, middlename, lastname, username, status, create_time, gender, password
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where userid = #{userid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user
+    where userid = #{userid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.nighteagle.model.User">
+    insert into user (userid, firstname, middlename, 
+      lastname, username, status, 
+      create_time, gender, password
+      )
+    values (#{userid,jdbcType=INTEGER}, #{firstname,jdbcType=VARCHAR}, #{middlename,jdbcType=VARCHAR}, 
+      #{lastname,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{status,jdbcType=BIT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{gender,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.nighteagle.model.User">
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="firstname != null">
+        firstname,
+      </if>
+      <if test="middlename != null">
+        middlename,
+      </if>
+      <if test="lastname != null">
+        lastname,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="firstname != null">
+        #{firstname,jdbcType=VARCHAR},
+      </if>
+      <if test="middlename != null">
+        #{middlename,jdbcType=VARCHAR},
+      </if>
+      <if test="lastname != null">
+        #{lastname,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=BIT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nighteagle.model.User">
+    update user
+    <set>
+      <if test="firstname != null">
+        firstname = #{firstname,jdbcType=VARCHAR},
+      </if>
+      <if test="middlename != null">
+        middlename = #{middlename,jdbcType=VARCHAR},
+      </if>
+      <if test="lastname != null">
+        lastname = #{lastname,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=BIT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where userid = #{userid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nighteagle.model.User">
+    update user
+    set firstname = #{firstname,jdbcType=VARCHAR},
+      middlename = #{middlename,jdbcType=VARCHAR},
+      lastname = #{lastname,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      status = #{status,jdbcType=BIT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      gender = #{gender,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR}
+    where userid = #{userid,jdbcType=INTEGER}
+  </update>
+</mapper>

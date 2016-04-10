@@ -1,0 +1,5 @@
+CREATE DATABASE GS
+
+CREATE USER gs@localhost IDENTIFIED BY "gs";  //创建一个用户
+
+GRANT ALL PRIVILEGES ON drupal.* TO gs@localhost;    //将这个database的最高权限赋予此用户
