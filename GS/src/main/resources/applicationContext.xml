@@ -69,10 +69,10 @@
     <!-- mybatis文件配置，扫描所有mapper文件 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" p:dataSource-ref="dataSource"
           p:configLocation="classpath:mybatis-config.xml"
-          p:mapperLocations="classpath:com/eliteams/quick4j/web/dao/*.xml"/>
+          p:mapperLocations="classpath:com/nighteagle/dao/*.xml"/>
 
     <!-- spring与mybatis整合配置，扫描所有dao -->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer" p:basePackage="com.eliteams.quick4j.web.dao"
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer" p:basePackage="com.nighteagle.dao"
           p:sqlSessionFactoryBeanName="sqlSessionFactory"/>
 
     <!-- 对dataSource 数据源进行事务管理 -->
@@ -96,7 +96,7 @@
 
     <!-- 事务 aop 配置 -->
     <aop:config>
-        <aop:pointcut id="serviceMethods" expression="execution(* com.eliteams.quick4j.web.service..*(..))"/>
+        <aop:pointcut id="serviceMethods" expression="execution(* com.nighteagle.service..*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods"/>
     </aop:config>
 

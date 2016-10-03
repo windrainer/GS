@@ -1,32 +1,42 @@
 package com.nighteagle.model;
 
-import java.util.Date;
-
 public class User {
-    private Integer userid;
+    private Long userId;
+
+    private Long roleId;
 
     private String firstname;
-
-    private String middlename;
 
     private String lastname;
 
     private String username;
 
-    private Boolean status;
-
-    private Date createTime;
+    private String password;
 
     private String gender;
 
-    private String password;
+    private Integer age;
 
-    public Integer getUserid() {
-        return userid;
+    private String email;
+
+    private String phone;
+
+    private String address;
+
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setUserid(Integer userid) {
-        this.userid = userid;
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public Long getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Long roleId) {
+        this.roleId = roleId;
     }
 
     public String getFirstname() {
@@ -35,14 +45,6 @@ public class User {
 
     public void setFirstname(String firstname) {
         this.firstname = firstname == null ? null : firstname.trim();
-    }
-
-    public String getMiddlename() {
-        return middlename;
-    }
-
-    public void setMiddlename(String middlename) {
-        this.middlename = middlename == null ? null : middlename.trim();
     }
 
     public String getLastname() {
@@ -61,20 +63,12 @@ public class User {
         this.username = username == null ? null : username.trim();
     }
 
-    public Boolean getStatus() {
-        return status;
+    public String getPassword() {
+        return password;
     }
 
-    public void setStatus(Boolean status) {
-        this.status = status;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setPassword(String password) {
+        this.password = password == null ? null : password.trim();
     }
 
     public String getGender() {
@@ -85,11 +79,35 @@ public class User {
         this.gender = gender == null ? null : gender.trim();
     }
 
-    public String getPassword() {
-        return password;
+    public Integer getAge() {
+        return age;
     }
 
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email == null ? null : email.trim();
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone == null ? null : phone.trim();
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address == null ? null : address.trim();
     }
 }

@@ -3,15 +3,17 @@ package com.nighteagle.dao;
 import com.nighteagle.model.User;
 
 public interface UserMapper {
-    int deleteByPrimaryKey(Integer userid);
+    int deleteByPrimaryKey(Long userId);
 
     int insert(User record);
 
     int insertSelective(User record);
 
-    User selectByPrimaryKey(Integer userid);
+    User selectByPrimaryKey(Long userId);
 
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    int selectByLoginCredential(String username, String password);
 }

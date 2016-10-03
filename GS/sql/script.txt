@@ -1,5 +1,19 @@
-CREATE DATABASE GS
+CREATE DATABASE GS;
 
 CREATE USER gs@localhost IDENTIFIED BY "gs";  //创建一个用户
 
-GRANT ALL PRIVILEGES ON drupal.* TO gs@localhost;    //将这个database的最高权限赋予此用户
+GRANT ALL PRIVILEGES ON GS.* TO gs@localhost;    //将这个database的最高权限赋予此用户
+
+DROP TABLE 'user' IF EXISTS;
+CREATE TABLE `user` (
+  `user_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `role_id` bigint(20) NOT NULL,
+  `firstname` varchar(32) CHARACTER SET latin1 DEFAULT NULL,
+  `secondname` varchar(32) CHARACTER SET latin1 DEFAULT NULL,
+  `gender` varchar(8) CHARACTER SET latin1 DEFAULT NULL,
+  `age` int(11) DEFAULT NULL,
+  `email` varchar(64) CHARACTER SET latin1 DEFAULT NULL,
+  `phone` varchar(32) CHARACTER SET latin1 DEFAULT NULL,
+  `address` varchar(128) DEFAULT NULL COMMENT 'user details',
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

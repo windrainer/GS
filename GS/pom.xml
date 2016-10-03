@@ -152,10 +152,25 @@
             <type>jar</type>
             <scope>test</scope>
         </dependency>
-        
-        
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>15.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.6</version>
+        </dependency>
   </dependencies>
-  <build>
+
+    <build>
     <finalName>GS</finalName>
     <plugins>
             <!-- Mybatis generator代码生成插件 配置 -->
