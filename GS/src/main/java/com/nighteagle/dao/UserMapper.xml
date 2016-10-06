@@ -19,7 +19,7 @@
     address
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from user
     where user_id = #{userId,jdbcType=BIGINT}
@@ -28,16 +28,6 @@
     delete from user
     where user_id = #{userId,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.nighteagle.model.User" >
-    insert into user (user_id, role_id, firstname, 
-      lastname, username, password, 
-      gender, age, email, 
-      phone, address)
-    values (#{userId,jdbcType=BIGINT}, #{roleId,jdbcType=BIGINT}, #{firstname,jdbcType=VARCHAR}, 
-      #{lastname,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{gender,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR}, 
-      #{phone,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR})
-  </insert>
   <insert id="insertSelective" parameterType="com.nighteagle.model.User" >
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides="," >
@@ -147,24 +137,10 @@
     </set>
     where user_id = #{userId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.nighteagle.model.User" >
-    update user
-    set role_id = #{roleId,jdbcType=BIGINT},
-      firstname = #{firstname,jdbcType=VARCHAR},
-      lastname = #{lastname,jdbcType=VARCHAR},
-      username = #{username,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR},
-      gender = #{gender,jdbcType=VARCHAR},
-      age = #{age,jdbcType=INTEGER},
-      email = #{email,jdbcType=VARCHAR},
-      phone = #{phone,jdbcType=VARCHAR},
-      address = #{address,jdbcType=VARCHAR}
-    where user_id = #{userId,jdbcType=BIGINT}
-  </update>
-    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    <select id="selectByUsernameAndPassword" resultMap="BaseResultMap" >
         select
         <include refid="Base_Column_List" />
         from user
-        where user_id = #{userId,jdbcType=BIGINT}
+        where username = #{username} and password = #{password}
     </select>
 </mapper>

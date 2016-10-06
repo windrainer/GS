@@ -1,6 +1,9 @@
-package com.nighteagle.model;
+package com.nighteagle.dto;
 
-public class User {
+/**
+ * Created by gaosen1 on 2016/10/6.
+ */
+public class UserDTO {
     private Long userId;
 
     private Long roleId;
@@ -44,7 +47,7 @@ public class User {
     }
 
     public void setFirstname(String firstname) {
-        this.firstname = firstname == null ? null : firstname.trim();
+        this.firstname = firstname;
     }
 
     public String getLastname() {
@@ -52,7 +55,7 @@ public class User {
     }
 
     public void setLastname(String lastname) {
-        this.lastname = lastname == null ? null : lastname.trim();
+        this.lastname = lastname;
     }
 
     public String getUsername() {
@@ -60,7 +63,7 @@ public class User {
     }
 
     public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
+        this.username = username;
     }
 
     public String getPassword() {
@@ -68,7 +71,7 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
+        this.password = password;
     }
 
     public String getGender() {
@@ -76,7 +79,7 @@ public class User {
     }
 
     public void setGender(String gender) {
-        this.gender = gender == null ? null : gender.trim();
+        this.gender = gender;
     }
 
     public Integer getAge() {
@@ -92,7 +95,7 @@ public class User {
     }
 
     public void setEmail(String email) {
-        this.email = email == null ? null : email.trim();
+        this.email = email;
     }
 
     public String getPhone() {
@@ -100,7 +103,7 @@ public class User {
     }
 
     public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
+        this.phone = phone;
     }
 
     public String getAddress() {
@@ -108,12 +111,12 @@ public class User {
     }
 
     public void setAddress(String address) {
-        this.address = address == null ? null : address.trim();
+        this.address = address;
     }
 
     @Override
     public String toString() {
-        return "User{" +
+        return "UserDTO{" +
                 "userId=" + userId +
                 ", roleId=" + roleId +
                 ", firstname='" + firstname + '\'' +

@@ -1,19 +1,13 @@
 package com.nighteagle.dao;
 
+import com.nighteagle.base.generic.GenericDao;
 import com.nighteagle.model.User;
+import org.apache.ibatis.annotations.Param;
 
-public interface UserMapper {
-    int deleteByPrimaryKey(Long userId);
+import java.util.List;
 
-    int insert(User record);
+public interface UserMapper extends GenericDao<User, Long> {
 
-    int insertSelective(User record);
+    List<User> selectByUsernameAndPassword(@Param("username") String username, @Param("password")String password);
 
-    User selectByPrimaryKey(Long userId);
-
-    int updateByPrimaryKeySelective(User record);
-
-    int updateByPrimaryKey(User record);
-
-    int selectByLoginCredential(String username, String password);
 }
